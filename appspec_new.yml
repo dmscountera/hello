@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /
+hooks:
+  BeforeInstall:
+    - location: scripts/stop_server
+      timeout: 120
+      runas: root
+  AfterInstall:
+    - location: scripts/start_server
+      timeout: 120
+      runas: root
